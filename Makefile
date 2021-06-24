@@ -6,56 +6,50 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/21 11:54:21 by rcabezas          #+#    #+#              #
-#    Updated: 2021/06/23 10:36:09 by rcabezas         ###   ########.fr        #
+#    Updated: 2021/06/24 20:12:37 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-UNAME_S := $(shell uname -s)
+NAME = fdf
 
-ifeq ($(UNAME_S), Darwin)
-    LIBS := -lz -framework OpenGL -framework Appkit
-    MLX = mlx_ios/libmlx.dylib
-    MINILIBX = mlx_ios
-    INCLUDES = -I/usr/include -I. -Iincludes/ -I $(MINILIBX) -I $(LIBFT)
-endif
+RM = rm -rf
 
-NAME = FdF
+LIBFT = libft
 
-CFLAGS = gcc -Werror -Wextra -Wall
+MINILIBX = mlx_ios
 
-SRCS_FDF = 	fdf.c
+MLX = $(MINILIBX)/libmlx.a -lmlx -framework OpenGL -framework AppKit
+
+CC = gcc -Wall -Wextra -Werror
+
+INCLUDES = -I $(LIBFT) -I $(MINILIBX) -I ./includes/
+
+SRCS_FDF = fdf.c map.c parse.c
 
 SRCS = $(addprefix srcs/, $(SRCS_FDF))
 
 OBJS = $(SRCS:.c=.o)
 
-LIBFT = libft
-
-RM = rm -rf
-
-LIB = $(addprefix $(INCLUDES_PATH)/, fdf.h)
-
-all: $(NAME)
-
-$(NAME) : $(OBJS)
-	@make -C $(MINILIBX)
+$(NAME): $(OBJS)
 	@make -C $(LIBFT)
-	@$(CFLAGS) -I $(INCLUDES) $(LIBFT)/libft.a $(MLX) $(OBJS) -o $(NAME)
-	@cp $(MLX) ./
+	@make -C $(MINILIBX)
+	@$(CC) $(MLX) $(OBJS) $(INCLUDES) $(LIBFT)/libft.a -o $(NAME) 
 
 %.o: %.c
-	@$(CFLAGS) -I $(INCLUDES) -o $@ -c $<
+	@$(CC) -I ./includes -o $@ -c $<
 
+all: $(NAME)
+	
 clean:
 	@$(RM) $(OBJS)
-	@make clean -C ./mlx_ios
+	@make clean -C $(MINILIBX)
 	@make clean -C $(LIBFT)
 
-fclean:			clean
+fclean: clean
 	@$(RM) $(NAME)
-	@$(RM) libmlx.a libmlx.dylib
+	@$(RM) $(MINILIBX)/libmlx.a
 	@make fclean -C $(LIBFT)
 
-re:				fclean all
+re: fclean all
 
 .PHONY: 		all fclean clean re

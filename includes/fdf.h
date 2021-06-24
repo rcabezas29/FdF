@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:41 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/06/23 11:58:44 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/06/24 19:16:49 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,31 @@
 # include <fcntl.h>
 # include <sys/stat.h>
 
+# include <mlx.h>
 # include "../libft/includes/libft.h"
 
-int	main(int argc, char **argv);
+typedef struct s_map
+{
+	int		size_x;
+	int		size_y;
+	int		**map_ptr;
+}				t_map;
+
+typedef struct  s_fdf
+{
+    void    *mlx_ptr;
+    void	*win_ptr;
+	t_map	*map;
+	char	*line;
+	
+}               t_fdf;
+
+
+int		main(int argc, char **argv);
+
+void    parse_file(t_fdf *f, char *file);
+
+int		count_bidimensional_array(char **s);
+void	count_map_size(t_fdf *f, char *file);
+void	malloc_map(t_fdf *f);
+#endif
