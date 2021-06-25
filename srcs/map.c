@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:09:17 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/06/24 18:49:47 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/06/25 10:57:25 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ void	malloc_map(t_fdf *f)
 
 	i = 0;
 	f->map->map_ptr = malloc(sizeof(int *) * f->map->size_y);
-	while (i++ < f->map->size_y)
+	while (i < f->map->size_y)
+	{
 		f->map->map_ptr[i] = malloc(sizeof(int) * f->map->size_x);
+		i++;
+	}
 }
 
 void	count_map_size(t_fdf *f, char *file)
@@ -34,7 +37,9 @@ void	count_map_size(t_fdf *f, char *file)
 	{
 		split = ft_split(f->line, ' ');
 		if (f->map->size_x == 0)
+		{
 			f->map->size_x = count_bidimensional_array(split);
+		}
 		else if (count_bidimensional_array(split) != f->map->size_x)
 		{
 			ft_putstr("Error - conflicting map\n");

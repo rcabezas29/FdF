@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:49:56 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/06/24 18:49:36 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/06/25 10:57:58 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void    parse_file(t_fdf *f, char *file)
 		}
 		free(f->line);
 		f->line = NULL;
+		i++;
 	}
 	free(f->line);
 	f->line = NULL;
