@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:41 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/06/25 18:06:05 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/06/30 10:21:13 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,5 @@ void	count_map_size(t_fdf *f, char *file);
 void	malloc_map(t_fdf *f);
 
 void	draw(t_fdf *f);
+void	color_put(t_fdf *f, int x, int y);
 #endif
