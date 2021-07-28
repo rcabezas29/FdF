@@ -6,7 +6,7 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/21 11:54:21 by rcabezas          #+#    #+#              #
-#    Updated: 2021/07/09 12:55:22 by rcabezas         ###   ########.fr        #
+#    Updated: 2021/07/28 13:59:49 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CC = gcc -Wall -Wextra -Werror
 
 INCLUDES = -I $(LIBFT) -I $(MINILIBX) -I ./includes/
 
-SRCS_FDF = fdf.c map.c parse.c draw.c maths.c camera.c
+SRCS_FDF = fdf.c map.c parse.c draw.c pixel.c
 
 SRCS = $(addprefix srcs/, $(SRCS_FDF))
 

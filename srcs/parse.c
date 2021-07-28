@@ -6,11 +6,11 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:49:56 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/07/09 10:17:23 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/07/28 13:48:28 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
 void	parse_file(t_fdf *f, char *file)
 {
@@ -20,6 +20,8 @@ void	parse_file(t_fdf *f, char *file)
 	int		j;
 
 	count_map_size(f, file);
+	f->scale = 1000 / f->map->size_x;
+	f->height = 10;
 	malloc_map(f);
 	fd = open(file, O_RDONLY);
 	i = 0;
@@ -29,8 +31,8 @@ void	parse_file(t_fdf *f, char *file)
 		j = 0;
 		while (split[j] != '\0')
 		{
-			f->map->points[i][j].x = i;
-			f->map->points[i][j].y = j;
+			//Assign directly pixels instead of position
+			assign_pixels_to_points(f, i, j, ft_atoi(split[j]));
 			f->map->points[i][j].z = ft_atoi(split[j]);
 			j++;
 		}
