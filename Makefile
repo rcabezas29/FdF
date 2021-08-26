@@ -6,7 +6,7 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/21 11:54:21 by rcabezas          #+#    #+#              #
-#    Updated: 2021/07/28 13:59:49 by rcabezas         ###   ########.fr        #
+#    Updated: 2021/08/26 10:41:08 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,11 @@ MINILIBX = mlx_ios
 
 MLX = $(MINILIBX)/libmlx.a -lmlx -framework OpenGL -framework AppKit
 
-CC = gcc -Wall -Wextra -Werror
+CC = gcc -Wall -Wextra -Werror -g
 
 INCLUDES = -I $(LIBFT) -I $(MINILIBX) -I ./includes/
 
-SRCS_FDF = fdf.c map.c parse.c draw.c pixel.c
+SRCS_FDF = fdf.c map.c parse.c draw.c pixel.c bresenham.c
 
 SRCS = $(addprefix srcs/, $(SRCS_FDF))
 

@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:09:17 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/07/09 10:19:13 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/24 11:23:33 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	malloc_map(t_fdf *f)
 	f->map->points = malloc(sizeof(int *) * f->map->size_y);
 	while (i < f->map->size_y)
 	{
-		f->map->points[i] = malloc(sizeof(*f->map->points) * f->map->size_x);
+		f->map->points[i] = malloc(sizeof(t_pixel) * f->map->size_x);
 		i++;
 	}
 }

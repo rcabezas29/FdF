@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:41 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/07/28 13:58:28 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/24 14:41:53 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_pixel
 typedef struct s_img
 {
 	void	*ptr;
-	char	*addr;
+	unsigned 	char *addr;
 	int		bpp;
 	int		line_length;
 	int		endian;
@@ -70,7 +70,8 @@ void	malloc_map(t_fdf *f);
 
 void	draw(t_fdf *f);
 void	color_put(t_fdf *f, t_pixel pix);
+void	put_rgb(unsigned char *addr, unsigned char r, unsigned char g, unsigned char b);
 
-void	bresenham(t_pixel p1, t_pixel p2);
+void	bresenham(t_fdf *f, t_pixel p1, t_pixel p2);
 void	assign_pixels_to_points(t_fdf *f, int i, int j, int z);
 #endif

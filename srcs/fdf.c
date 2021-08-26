@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:57 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/07/28 11:45:01 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/26 10:37:45 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	f->mlx_ptr = mlx_init();
 	parse_file(f, argv[1]);
 	f->img.ptr = mlx_new_image(f->mlx_ptr, 1920, 1080);
-	f->img.addr = mlx_get_data_addr(f->img.ptr,
+	f->img.addr = (unsigned char *)mlx_get_data_addr(f->img.ptr,
 			&f->img.bpp, &f->img.line_length,
 			&f->img.endian);
 	draw(f);
