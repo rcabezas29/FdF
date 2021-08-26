@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:41 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/24 14:41:53 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/26 14:12:57 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,13 @@ typedef struct s_fdf
 	t_pixel	initial_pix;
 	int		height;
 	int		scale;
+	int		max_height;
 }				t_fdf;
 
 int		main(int argc, char **argv);
 
 void	parse_file(t_fdf *f, char *file);
+void	init_map_scale(t_fdf *f, char *file);
 
 int		count_bidimensional_array(char **s);
 void	count_map_size(t_fdf *f, char *file);
@@ -73,5 +75,6 @@ void	color_put(t_fdf *f, t_pixel pix);
 void	put_rgb(unsigned char *addr, unsigned char r, unsigned char g, unsigned char b);
 
 void	bresenham(t_fdf *f, t_pixel p1, t_pixel p2);
+
 void	assign_pixels_to_points(t_fdf *f, int i, int j, int z);
 #endif
