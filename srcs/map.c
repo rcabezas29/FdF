@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:09:17 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 12:53:03 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 13:38:41 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,11 @@ void	count_map_size(t_fdf *f, char *file)
 			ft_putstr("Error - conflicting map\n");
 			exit(EXIT_SUCCESS);
 		}
+		free_double_ptr(split);
 		free(f->line);
-		f->line = NULL;
 		i++;
 	}
 	free(f->line);
-	f->line = NULL;
 	close(fd);
 	f->map->size_y = i;
 }

@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:57 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 09:38:22 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 13:21:39 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	exiting(t_fdf *f)
 {
 	mlx_clear_window(f->mlx_ptr, f->win_ptr);
 	mlx_destroy_window(f->mlx_ptr, f->win_ptr);
+	system("leaks fdf");
 	exit(EXIT_SUCCESS);
 }
 

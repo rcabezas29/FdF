@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:49:56 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 12:15:33 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 13:36:12 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	parse_file(t_fdf *f, char *file)
 			if (color_split[1])
 				assign_color_to_points(f, i, j, color_split[1]);
 			j++;
+			free_double_ptr(color_split);
 		}
+		free_double_ptr(split);
 		free(f->line);
-		f->line = NULL;
 		i++;
 	}
 	free(f->line);
-	f->line = NULL;
 	close(fd);
 }
 

@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:41 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 12:03:56 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 13:10:33 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	color_put(t_fdf *f, t_pixel pix);
 void	put_rgb(unsigned char *addr, unsigned char r, unsigned char g, unsigned char b);
 
 void	bresenham(t_fdf *f, t_pixel p1, t_pixel p2);
+t_color	linear_gradient(float total_dist, float current_dist, t_color c1, t_color c2);
 
 void	assign_pixels_to_points(t_fdf *f, int i, int j, int z);
 
