@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:49:56 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/26 14:19:29 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 12:15:33 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	parse_file(t_fdf *f, char *file)
 	char	**split;
 	int		i;
 	int		j;
+	char	**color_split;
 
 	init_map_scale(f, file);
 	malloc_map(f);
@@ -29,7 +30,10 @@ void	parse_file(t_fdf *f, char *file)
 		j = 0;
 		while (split[j] != '\0')
 		{
-			assign_pixels_to_points(f, i, j, ft_atoi(split[j]));
+			color_split = ft_split(split[j], ',');
+			assign_pixels_to_points(f, i, j, ft_atoi(color_split[0]));
+			if (color_split[1])
+				assign_color_to_points(f, i, j, color_split[1]);
 			j++;
 		}
 		free(f->line);
@@ -46,6 +50,6 @@ void	init_map_scale(t_fdf *f, char *file)
 	count_map_size(f, file);
 	f->max_height = 10;
 	f->scale = 800 / f->map->size_x;
-	f->height = 10;
-	f->initial_pix = (t_pixel){900 - 200 * (f->map->size_y / f->map->size_x), -400, 0};
+	f->height = f->scale / 5;
+	f->initial_pix = (t_point){900 - 200 * (f->map->size_y / f->map->size_x), -400, 0};
 }

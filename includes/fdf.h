@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:41 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/26 14:12:57 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 12:03:56 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,26 @@
 # include <mlx.h>
 # include "../libft/includes/libft.h"
 
-typedef struct s_pixel
+typedef struct s_color
+{
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+}				t_color;
+
+typedef struct s_point
 {
 	int	x;
 	int y;
 	int	z;
+}				t_point;
+
+typedef struct s_pixel
+{
+	t_color	color;
+	t_point	point;
 }				t_pixel;
+
 
 typedef struct s_img
 {
@@ -55,9 +69,9 @@ typedef struct s_fdf
 	t_map	*map;
 	char	*line;
 	t_img	img;
-	t_pixel	initial_pix;
-	int		height;
-	int		scale;
+	t_point	initial_pix;
+	float	height;
+	float	scale;
 	int		max_height;
 }				t_fdf;
 
@@ -77,4 +91,7 @@ void	put_rgb(unsigned char *addr, unsigned char r, unsigned char g, unsigned cha
 void	bresenham(t_fdf *f, t_pixel p1, t_pixel p2);
 
 void	assign_pixels_to_points(t_fdf *f, int i, int j, int z);
+
+void    assign_color_to_points(t_fdf *f, int i, int j, char *hex);
+t_color hex_to_color(char *hex);
 #endif

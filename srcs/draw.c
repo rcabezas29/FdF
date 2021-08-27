@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 12:34:44 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/26 10:38:44 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 12:24:19 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void	color_put(t_fdf *f, t_pixel pix)
 {
 	int i;
 
-	if (pix.y < 1080 && pix.x < 1920 && pix.x > 0 && pix.y > 0)
+	if (pix.point.y < 1080 && pix.point.x < 1920 && pix.point.x > 0 && pix.point.y > 0)
 	{
-		i = pix.y * f->img.line_length + f->img.bpp / 8 * pix.x;
-		put_rgb(f->img.addr + i, 255, 255, 255);
+		i = pix.point.y * f->img.line_length + f->img.bpp / 8 * pix.point.x;
+		put_rgb(f->img.addr + i, pix.color.r, pix.color.g, pix.color.b);
 	}
 }
 

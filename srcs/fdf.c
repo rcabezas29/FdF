@@ -6,11 +6,11 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:57 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/26 10:37:45 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 09:38:22 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
 int	exiting(t_fdf *f)
 {

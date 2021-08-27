@@ -6,11 +6,11 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:09:17 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/24 11:23:33 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 12:53:03 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
 void	malloc_map(t_fdf *f)
 {
