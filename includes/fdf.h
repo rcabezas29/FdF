@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:41 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 14:21:39 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 14:51:57 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 
 # include <mlx.h>
 # include "../libft/includes/libft.h"
+
+# define ESC_KEY 53
+# define KEY_PRESS 2
 
 typedef struct s_color
 {
@@ -95,4 +98,7 @@ void	assign_pixels_to_points(t_fdf *f, int i, int j, int z);
 
 void	assign_color_to_points(t_fdf *f, int i, int j, char *hex);
 t_color	hex_to_color(char *hex);
+
+int		keyhook(int keycode, t_fdf *f);
+int		exiting(t_fdf *f);
 #endif

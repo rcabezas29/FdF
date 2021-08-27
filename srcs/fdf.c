@@ -6,11 +6,18 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:57 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 14:15:51 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 14:51:37 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
+
+int	keyhook(int keycode, t_fdf *f)
+{
+	if (keycode == ESC_KEY)
+		exiting(f);
+	return (0);
+}
 
 int	exiting(t_fdf *f)
 {
@@ -42,5 +49,6 @@ int	main(int argc, char **argv)
 	f->win_ptr = mlx_new_window(f->mlx_ptr, 1920, 1080, "window");
 	mlx_put_image_to_window(f->mlx_ptr, f->win_ptr, f->img.ptr, 0, 0);
 	mlx_hook(f->win_ptr, 17, 0, exiting, f);
+	mlx_hook(f->win_ptr, KEY_PRESS, 0, &keyhook, f);
 	mlx_loop(f->mlx_ptr);
 }
