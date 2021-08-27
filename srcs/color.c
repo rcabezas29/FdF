@@ -6,28 +6,28 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 11:30:23 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 12:27:16 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 14:11:46 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-void    assign_color_to_points(t_fdf *f, int i, int j, char *hex)
+void	assign_color_to_points(t_fdf *f, int i, int j, char *hex)
 {
-    t_color color;
-    
-    color = hex_to_color(hex);
+	t_color	color;
+
+	color = hex_to_color(hex);
 	f->map->points[i][j].color.r = color.r;
 	f->map->points[i][j].color.g = color.g;
 	f->map->points[i][j].color.b = color.b;
 }
 
-t_color hex_to_color(char *hex)
+t_color	hex_to_color(char *hex)
 {
-    t_color color;
-    int	len;
-	int decimal;
-	int base;
+	t_color	color;
+	int		len;
+	int		decimal;
+	int		base;
 
 	len = ft_strlen(hex);
 	decimal = 0;

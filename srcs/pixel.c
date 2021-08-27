@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 09:15:05 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 12:16:34 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 14:22:35 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	assign_pixels_to_points(t_fdf *f, int i, int j, int z)
 {
 	int	x;
-	int y;
+	int	y;
 
 	x = i * f->scale + f->initial_pix.x;
 	y = j * f->scale + f->initial_pix.y;

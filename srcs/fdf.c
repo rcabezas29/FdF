@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:57 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 13:21:39 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 14:15:51 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	exiting(t_fdf *f)
 {
 	mlx_clear_window(f->mlx_ptr, f->win_ptr);
 	mlx_destroy_window(f->mlx_ptr, f->win_ptr);
-	system("leaks fdf");
 	exit(EXIT_SUCCESS);
 }
 
@@ -32,6 +31,8 @@ int	main(int argc, char **argv)
 	f = ft_calloc(sizeof(t_fdf), 1);
 	f->map = ft_calloc(sizeof(t_map), 1);
 	f->mlx_ptr = mlx_init();
+	init_map_scale(f, argv[1]);
+	malloc_map(f);
 	parse_file(f, argv[1]);
 	f->img.ptr = mlx_new_image(f->mlx_ptr, 1920, 1080);
 	f->img.addr = (unsigned char *)mlx_get_data_addr(f->img.ptr,

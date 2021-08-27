@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 12:34:44 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 12:24:19 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/27 14:13:11 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	draw(t_fdf *f)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < f->map->size_y)
 	{
@@ -35,18 +35,19 @@ void	draw(t_fdf *f)
 
 void	color_put(t_fdf *f, t_pixel pix)
 {
-	int i;
+	int	i;
 
-	if (pix.point.y < 1080 && pix.point.x < 1920 && pix.point.x > 0 && pix.point.y > 0)
+	if (pix.point.y < 1080 && pix.point.x < 1920
+		&& pix.point.x > 0 && pix.point.y > 0)
 	{
 		i = pix.point.y * f->img.line_length + f->img.bpp / 8 * pix.point.x;
-		put_rgb(f->img.addr + i, pix.color.r, pix.color.g, pix.color.b);
+		put_rgb(f->img.addr + i, pix.color);
 	}
 }
 
-void	put_rgb(unsigned char *addr, unsigned char r, unsigned char g, unsigned char b)
+void	put_rgb(unsigned char *addr, t_color color)
 {
-	addr[0] = r;
-	addr[1] = g;
-	addr[2] = b;
+	addr[0] = color.r;
+	addr[1] = color.g;
+	addr[2] = color.b;
 }
