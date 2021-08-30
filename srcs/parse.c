@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:49:56 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 14:21:54 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/30 19:01:12 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	parse_file(t_fdf *f, char *file)
 	int		j;
 
 	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		error_handling(1);
 	i = 0;
 	while (get_next_line(fd, &f->line) > 0)
 	{
@@ -55,6 +57,6 @@ void	init_map_scale(t_fdf *f, char *file)
 	f->max_height = 10;
 	f->scale = 800 / f->map->size_x;
 	f->height = f->scale / 5;
-	f->initial_pix = (t_point){900 - 200
-		* (f->map->size_y / f->map->size_x), -400, 0};
+	f->initial_pix = (t_point){1000 - 200
+		* (f->map->size_y / f->map->size_x), -350, 0};
 }

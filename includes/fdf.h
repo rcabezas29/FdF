@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:41 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 14:51:57 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/30 19:08:22 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,6 @@ void	assign_color_to_points(t_fdf *f, int i, int j, char *hex);
 t_color	hex_to_color(char *hex);
 
 int		keyhook(int keycode, t_fdf *f);
+void	error_handling(int error);
 int		exiting(t_fdf *f);
 #endif

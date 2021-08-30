@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:09:17 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 13:38:41 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/30 19:01:53 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	count_map_size(t_fdf *f, char *file)
 	char	**split;
 
 	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		error_handling(1);
 	i = 0;
 	while (get_next_line(fd, &f->line) > 0)
 	{
@@ -41,10 +43,7 @@ void	count_map_size(t_fdf *f, char *file)
 			f->map->size_x = count_bidimensional_array(split);
 		}
 		else if (count_bidimensional_array(split) != f->map->size_x)
-		{
-			ft_putstr("Error - conflicting map\n");
-			exit(EXIT_SUCCESS);
-		}
+			error_handling(1);
 		free_double_ptr(split);
 		free(f->line);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:58:57 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/08/27 14:51:37 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/08/30 19:07:00 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ int	main(int argc, char **argv)
 	t_fdf	*f;
 
 	if (argc != 2)
-	{
-		ft_putstr("Error - wrong number of arguments\n");
-		return (0);
-	}
+		error_handling(2);
 	f = ft_calloc(sizeof(t_fdf), 1);
 	f->map = ft_calloc(sizeof(t_map), 1);
 	f->mlx_ptr = mlx_init();
